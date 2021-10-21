@@ -1,0 +1,278 @@
+# Plot numbers from 1 to 10 on the graph 
+bitmap(file="out.png")
+plot(1:50)
+
+for ( i in 1:10 )
+{
+	print( i )
+}
+
+i <- 0
+while ( i < 10 )
+{
+	...
+	i <- i + 1
+}
+
+break
+next # instead of continue
+
+age <- 25 # variable
+paste( "R is", age ) # concatenate and print ( only like that available )
+
+class( age ) # numerical
+
+z <- 1i # complex numvers
+
+age_complex <- as.complex( age ) # convert between data-types
+
+str <- "multiple
+string" # valid
+
+str # prints the variable
+
+cat(str) # prints the string with newlines as in the code
+
+nchar(str) # string length
+
+grepl( "multi", str ) #  check for substring
+
+max ( 1, 3, 4 )
+min ( 2, 4, 3 )
+sqrt ( 16 )
+abs ( -10 )
+ceyling( 1.5 )
+floor( 2.3 )
+
+10 > 4 # prints TRUE
+
+if ( 10 > 4 )
+{
+}
+else
+{
+}
+
+11 %% 5 = 1 # reminder
+11 %/% 2 = 5 # resultl without reminder
+%*% = matrix multiplication
+
+# array
+num_array <- c( 2, 3 )
+str_array <- list( "str1", "str2" )
+for ( i in num_array ) { ... }
+
+my_var <- 3 # attribute a value ( multiple ways )
+my_var <<- 3
+3 -> my_var
+3 ->> my_var # those with << and >> are global variables
+
+# function declaration and execution
+f <- function() {} 
+f()
+# has default parameter value: g <- function( age = 0 ) and return( age )
+# functions can be bested
+g <- function() 
+{
+	l <- function()
+	{
+
+	}
+}
+
+c( 1, 2 ) # vector only has the same data-type
+list( "str1", 4 ) # list can have multiple data-types
+# otherwise, they are the exact same
+
+# vector: c()
+vector <- 1:10 # now have numbers 1 to 10 in the array
+decimal <- 1.2:5.4 # has 1.2, 2.2, 3.2, 4.2, 5.2 ( keeps the decimal and increments the integer )
+sort( vector )
+vector[4] # canot have vector[0], it starts at 1
+vector[c(1, 3)] # access the 1st and 3rd value in the array
+vector[c(-1)] # access all besides the first value
+repeat_each <- rep(c(1,2,3), each = 3) # 1 1 1 2 2 2 3 3 3 
+repeat_indepent <- rep(c(1,2,3), times = c(5,2,1)) # 1 1 1 1 1 2 2 3
+numbers <- seq(from = 0, to = 100, by = 20) # 0 20 40 60 80 100
+
+# list: list()
+l <- list( 2, 3, "strn" )
+5 %in% l = FALSE # determines if value is in array / matrix / multi-dimentional array
+append( l, "append to the end of the array" )
+append( l, "append after the value of index 2", after = 2 )
+l <- l[-1] # removes value a index 1
+(l)[2:4] # print values at 2, 3 and 4
+for ( i in l ) { ... }
+l1 <- list( 1, 4 )
+l2 <-list( 4, "str" )
+l12 <- c( l1, l2 ) # becomes list ( 1, 4, 4, "str" )
+
+# matrix
+m <- matrix(c(1,2,3,4,5,6), nrow = 3, ncol = 2) # can do with lists too
+      [,1] [,2]
+[1,]    1    4
+[2,]    2    5
+[3,]    3    6
+
+m[1, 2] # 4
+m[1,] # first row = c( 1, 4 )
+m[,1] # first column = c( 4, 5, 6 )
+m[ c(1, 2), ] # first 2 rows
+m[ ,c(1, 2) ] # first 2 columns
+
+m_new <- cbind( m, c( 7, 8, 9 )) # column bind = add new column to a matrix
+m_new <- rbind( m, c( -1, -2 )) # row bind = add new row to a matrix
+
+m_remove_row <- m[ c(-1), ] # remove first row
+m_remove_column <- m[ ,c(-1) ] # remove first column
+
+dim(m) # dimensions of the matrix ( h, w )
+length(m) # length of the matrix if it were an array
+
+# loop the matrix
+for (rows in 1:nrow(m)) {
+  for (columns in 1:ncol(m)) {
+    print(m[rows, columns])
+  }
+}
+
+m < rbind( m, m ) # add matrix to the rows ( under it )
+m < cbind( m, m ) # add matrix to the columns ( to the left it )
+
+# mutli-dimentional arrays
+multi <- array( c( 1:24 ), dim = ( 4, 3, 2 ) ) # dim = ( h, w, depth )
+dim( multi ) # dimentions
+
+# tables = data frames
+data_frame <- data.frame (
+	values1 = c( 3, 4 ),
+	values2 = c( 4, 5 )
+)
+  values1 values2
+1       3       4
+2       4       5
+
+
+summary(data_frame)
+    values1        values2    
+ Min.   :3.00   Min.   :4.00  
+ 1st Qu.:3.25   1st Qu.:4.25  
+ Median :3.50   Median :4.50  
+ Mean   :3.50   Mean   :4.50  
+ 3rd Qu.:3.75   3rd Qu.:4.75  
+ Max.   :4.00   Max.   :5.00  
+
+data_frame[1] # first column = column of values1
+data_frame[["values2"]] # 2nd column = array of values2
+
+new_data_frame <- rbind( data_frame, c( 3, 4 ) ) # adds a row to the data_frame
+new_data_frame <- cbind( data_frame, values3 = c( 2, 3 ) ) # adds a row to the data_frame
+
+data_frame <- data_frame[ -c(1), ] # remove first row
+data_frame <- data_frame[ ,-c(1) ] # remove first column
+
+data
+
+ncol(), nrow(), length() ( as if it were an array ) and dim() for data frame dimentions
+rbind() and cbind() for data frames ( add one to another either under or to the left of it )
+
+# factors
+types <- factor( c( "type1", "type2", "type2" ), levels = c( "type1", "type2" ) )
+# used to define categories
+# levels defines the categories and the actual array can have em repeat
+length(types)
+
+plot( c( 1, 2 ), c( 3, 4 ) ) # have points at the specified x and y ( x1 = 1, y2 = 3 / x2 = 2, y2 = 4 )
+plot( 1, 2 ) # have point at x = 1 and y = 2
+
+x <- c(1, 2, 3, 4, 5)
+y <- c(3, 7, 8, 9, 12)
+plot(x, y)
+
+plot(1:10, type="l")
+# a line that goes along (1, 1), (2, 2) ...
+
+plot(1:10, main="My Graph", xlab="The x-axis", ylab="The y axis") # main - the title of the graph / and xlab, ylab are the nammes of the columns
+
+specify col = yellow to plot yellow points
+specify cex = 2 to plot larger points / lwd = 2 for thicker line
+specify pch = 0 ( between 0 and 25 accepted ) to change the shape of the plotted points / lty = 2 to change the stype of the line
+0 removes the line
+1 displays a solid line
+2 displays a dashed line
+3 displays a dotted line
+4 displays a "dot dashed" line
+5 displays a "long dashed" line
+6 displays a "two dashed" line
+
+
+
+line1 <- c(1,2,3,4,5,10)
+line2 <- c(2,5,7,8,9,10)
+
+plot(line1, type = "l", col = "blue") # have to have plot for the 1st line
+lines(line2, type="l", col = "red") # and lines for the next lines
+
+
+
+
+# day one, the age and speed of 12 vehicles:
+x1 <- c(5,7,8,7,2,2,9,4,11,12,9,6)
+y1 <- c(99,86,87,88,111,103,87,94,78,77,85,86)
+
+# day two, the age and speed of 15 cars:
+x2 <- c(2,2,8,1,15,8,12,9,7,3,11,4,7,14,12)
+y2 <- c(100,105,84,105,90,99,90,95,94,100,79,112,91,80,85)
+
+plot(x1, y1, main="Observation of Vehicles", xlab="Vehicle age", ylab="Vehicle speed", col="yellow", cex=2)
+points(x2, y2, col="blue", cex=2)
+
+
+
+# Create a vector of pies
+x <- c(10,20,30,40)
+pie(x)
+pie(x, init.angle = 90) # rotate the piechart
+
+
+
+x <- c(10,20,30,40)
+
+mylabel <- c("Apples", "Bananas", "Cherries", "Dates")
+
+colors <- c("blue", "yellow", "green", "black")
+
+pie( x, label = mylabel, main = "Fruits", col = colors )
+
+legend("bottomright", mylabel, fill = colors) # bottomright, bottom, bottomleft, left, topleft, top, topright, right, center
+
+
+
+# barchart
+
+# x-axis values
+x <- c("A", "B", "C", "D")
+
+# y-axis values
+y <- c(2, 4, 6, 8)
+
+barplot(y, names.arg = x, density = 10, width = c(1,2,3,4), horiz = TRUE) # density changes the texture of the chart, width just makes each bar wider, horiz akes it horizontal
+
+datasets are dataframes, held in a file
+
+which.min(), which.max() give you the index the the min / max
+rownames() gives yuo the rowname
+
+mean() - The average value
+median() - The middle value
+mode() - The most common value
+
+percentile = tells you how many x% of all ... is
+
+quartiles = get the percentiles of 0% 25% 50% 75% and 100%
+
+do not have data-types specified
+
+
+
+

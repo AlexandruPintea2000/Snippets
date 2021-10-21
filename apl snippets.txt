@@ -1,0 +1,17 @@
+Android: just a demo project, does not do much ( click and it changes text )
+Cpp: application versions
+
+For the rest, just getting to know how each of the language is used:
+
+Lua: - pos / neg, odd / even, get / set file functions
+     - Interval oop with functions for constructor and search
+     - variables, for structure and such alike fle
+
+Android: push and chages text
+
+Sql: database examples
+	- Buyers-and-Orders: create tables, insert data and multiple selects
+	- Sql-Website: example for creating a table
+	- Users-and-Posts: create tables, insert data for both and multiple selects for every table
+
+
